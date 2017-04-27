@@ -98,8 +98,13 @@ public class DaoImpl implements IDao {
 
 	@Override
 	public Collection<Compte> listerAutresComptes(long idCompte) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		
+		Query query = em.createQuery("SELECT c FROM Compte c WHERE c.numeroCompte <> :id");
+		query.setParameter("id", idCompte);
+		Collection<Compte> comptes = query.getResultList();
+		em.close();
+		return comptes;
 	}
 
 	@Override
