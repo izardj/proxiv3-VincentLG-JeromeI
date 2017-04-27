@@ -9,6 +9,17 @@ import metier.Conseiller;
 public interface IServiceConseiller {
 
 	/**
+	 * Méthode qui retourne un conseiller grace à son login et son mdp
+	 * 
+	 * @param login
+	 *            identifiant
+	 * @param pwd
+	 *            mots de passe
+	 * @return retourne le conseiller
+	 */
+	public Conseiller verificationLogin(String login, String pwd);
+
+	/**
 	 * retourne la liste de clients d'un conseiller
 	 * 
 	 * @param conseiller
@@ -16,7 +27,7 @@ public interface IServiceConseiller {
 	 * @return la liste de client du conseiller
 	 */
 	public Collection<Client> listerClientsParConseiller(Conseiller conseiller);
-	
+
 	/**
 	 * modifie le client
 	 * 
@@ -25,14 +36,16 @@ public interface IServiceConseiller {
 	 * @return retourne le nombre de lignes modifiées
 	 */
 	public int modifierClient(Client client);
-	
+
 	/**
 	 * Récupère les comptes associés à un client
-	 * @param client Le client dont on veut les comptes
+	 * 
+	 * @param client
+	 *            Le client dont on veut les comptes
 	 * @return Les comptes du client
 	 */
 	public Collection<Compte> listerComptesClient(Client client);
-		
+
 	/**
 	 * Retourne un client correspondant a l'Id
 	 * 
@@ -41,7 +54,7 @@ public interface IServiceConseiller {
 	 * @return client correspondant à l'id
 	 */
 	public Client retourneClientParId(long idClient);
-	
+
 	/**
 	 * Retourne un compte selectionné par son id
 	 * 
@@ -54,21 +67,26 @@ public interface IServiceConseiller {
 	/**
 	 * Récupère tous les comptes de l'agence sauf le compte donné en argument
 	 * 
-	 * @param idCompte identifiant du compte à exclure des comptes retournés
+	 * @param idCompte
+	 *            identifiant du compte à exclure des comptes retournés
 	 * 
 	 * @return une collection de comptes de l'agence
 	 */
 	public Collection<Compte> listerAutresComptes(long idCompte);
-	
+
 	/**
 	 * Met à jour les comptes lors d'un virement
-	 * @param compteDebiteur Compte débité
-	 * @param compteCrediteur Compte crédité
-	 * @param montant Somme à virer
+	 * 
+	 * @param compteDebiteur
+	 *            Compte débité
+	 * @param compteCrediteur
+	 *            Compte crédité
+	 * @param montant
+	 *            Somme à virer
 	 * @return retourne le nombre de lignes modifiées
 	 */
 	public int virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
-	
+
 	/**
 	 * retourne le conseiller corespondant a l'Id
 	 * 
@@ -77,6 +95,5 @@ public interface IServiceConseiller {
 	 * @return conseiller corespondant à l'Id
 	 */
 	public Conseiller afficherConseiller(long idConseiller);
-	
-	
+
 }
