@@ -1,0 +1,5 @@
+/**
+ * Couche metier
+ *
+ */
+package metier;
