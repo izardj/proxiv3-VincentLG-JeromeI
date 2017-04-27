@@ -35,7 +35,7 @@ public interface IServiceConseiller {
 	 *            client à modifier
 	 * @return retourne le nombre de lignes modifiées
 	 */
-	public int modifierClient(Client client);
+	public void modifierClient(Client client);
 
 	/**
 	 * Récupère les comptes associés à un client
@@ -85,7 +85,7 @@ public interface IServiceConseiller {
 	 *            Somme à virer
 	 * @return retourne le nombre de lignes modifiées
 	 */
-	public int virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
 
 	/**
 	 * retourne le conseiller corespondant a l'Id

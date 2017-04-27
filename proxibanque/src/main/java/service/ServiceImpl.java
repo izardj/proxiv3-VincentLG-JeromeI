@@ -25,9 +25,8 @@ public class ServiceImpl implements IServiceConseiller {
 	}
 
 	@Override
-	public int modifierClient(Client client) {
+	public void modifierClient(Client client) {
 		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override
@@ -55,9 +54,8 @@ public class ServiceImpl implements IServiceConseiller {
 	}
 
 	@Override
-	public int virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
 		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	@Override
