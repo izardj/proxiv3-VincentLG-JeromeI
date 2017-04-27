@@ -38,8 +38,15 @@ public class DaoImpl implements IDao {
 
 	@Override
 	public Collection<Client> listerClientsParConseiller(Conseiller conseiller) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+
+		Query query = em.createQuery("SELECT c FROM Client c WHERE c.conseiller = :conseiller");
+		query.setParameter("conseiller", conseiller);
+
+		Collection<Client> clients = query.getResultList();
+		conseiller.setClients(clients);
+		em.close();
+		return clients;
 	}
 
 	@Override
