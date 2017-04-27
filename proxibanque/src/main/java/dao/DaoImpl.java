@@ -18,7 +18,11 @@ public class DaoImpl implements IDao {
 	@Override
 	public Conseiller verificationLogin(String login, String pwd) {
 		EntityManager em = emf.createEntityManager();
+		
 		Query query = em.createQuery("SELECT c FROM Conseiller c WHERE c.login = :login AND c.pwd = :pwd");
+		query.setParameter("login", login);
+		query.setParameter("pwd", pwd);
+		
 		Conseiller conseiller = (Conseiller) query.getSingleResult();
 		em.close();
 		return conseiller;
