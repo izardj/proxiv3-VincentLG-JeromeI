@@ -23,16 +23,19 @@ public class creationBDD extends TestCase {
 	@Test
 	public void testBDD() {
 		Conseiller c = new Conseiller("Robichet", "Robert", "4565458", "roro69@gmail.fr", "demo", "demo");
+		Conseiller c2 = new Conseiller("TheConseiller", "PrenomCon", "9874556", "Conseiller2@gmail.fr", "demo2", "demo2");
 		
 		Client cl1 = new Client("ZEZE", "Bernard", "05548922852","berner@hotmail.fr", null, false);
 		Client cl2 = new Client("tutu", "alice", "6584572222","Atutu@hotmail.fr", null, false);
 		Client cl3 = new Client("gaga", "Jojo", "9879495925","jojotutu@hotmail.fr", "MomoEnterprise", true);
 		Client cl4 = new Client("momo", "Lulu", "65484821212","lulu@hotmail.fr", null, false);
+		Client cl5 = new Client("LE BAIL", "Jonathan", "6525482323","jojodu56@hotmail.fr", null, false);
 		
 		Adresse a1= new Adresse("rue du chat qui tousse", "69740", "GENAS");
 		Adresse a2= new Adresse("avenue du chateau", "25148", "LOURDE");
 		Adresse a3= new Adresse("rue du mouton qui broute", "42563", "SAINT-ETIENNE");
 		Adresse a4= new Adresse("avenue de la rue", "56240", "QUIBERON");
+				
 		
 		CompteCourant cc1=new CompteCourant(2000, "2009-12-05");
 		CompteCourant cc2=new CompteCourant(3000, "2015-02-25");
@@ -49,18 +52,25 @@ public class creationBDD extends TestCase {
 		clients.add(cl3);
 		clients.add(cl4);
 		
+		Collection<Client> clients2 = new ArrayList<Client>();
+		clients2.add(cl5);
+		
 		// association conseiller-client
 		c.setClients(clients);
+		c2.setClients(clients2);
+		
 		cl1.setConseiller(c);
 		cl2.setConseiller(c);
 		cl3.setConseiller(c);
 		cl4.setConseiller(c);
+		cl5.setConseiller(c2);
 		
 		// association client-adresse
 		cl1.setAdresse(a1);
 		cl2.setAdresse(a2);
 		cl3.setAdresse(a3);
 		cl4.setAdresse(a4);
+		cl5.setAdresse(a2);//Meme adresse que cl2
 		
 		// association client-compte
 		Collection<Compte> comptes = new ArrayList<Compte>();
@@ -94,6 +104,7 @@ public class creationBDD extends TestCase {
 		tx.begin();
 		// conseiller
 		em.persist(c);
+	
 		// clients
 		em.persist(cl1);
 		em.persist(cl2);
@@ -112,6 +123,13 @@ public class creationBDD extends TestCase {
 		em.persist(ce1);
 		em.persist(ce2);
 		em.persist(ce3);
+		
+		
+		//Conseiller2
+		em.persist(c2);
+		
+		//Client 5
+		em.persist(cl5);
 		
 		tx.commit();
 		em.close();
