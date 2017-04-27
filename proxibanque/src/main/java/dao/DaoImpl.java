@@ -77,29 +77,29 @@ public class DaoImpl implements IDao {
 	@Override
 	public Client retourneClientParId(long idClient) {
 		EntityManager em = emf.createEntityManager();
-		
+
 		Client client = em.find(Client.class, idClient);
 
 		em.close();
-		
+
 		return client;
 	}
 
 	@Override
 	public Compte getCompteParId(long idCompte) {
 		EntityManager em = emf.createEntityManager();
-		
+
 		Compte compte = em.find(Compte.class, idCompte);
 
 		em.close();
-		
+
 		return compte;
 	}
 
 	@Override
 	public Collection<Compte> listerAutresComptes(long idCompte) {
 		EntityManager em = emf.createEntityManager();
-		
+
 		Query query = em.createQuery("SELECT c FROM Compte c WHERE c.numeroCompte <> :id");
 		query.setParameter("id", idCompte);
 		Collection<Compte> comptes = query.getResultList();
@@ -108,9 +108,19 @@ public class DaoImpl implements IDao {
 	}
 
 	@Override
-	public int virementComptes(Compte compteDebiteur, Compte compteCrediteur) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		compteDebiteur.setSolde(compteDebiteur.getSolde() - montant);
+		compteCrediteur.setSolde(compteCrediteur.getSolde() + montant);
+		
+		tx.begin();
+		em.merge(compteDebiteur);
+		em.merge(compteCrediteur);
+		tx.commit();
+
+		em.close();
 	}
 
 	@Override

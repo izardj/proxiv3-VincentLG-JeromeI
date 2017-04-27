@@ -33,7 +33,6 @@ public interface IDao {
 	 * 
 	 * @param client
 	 *            client à modifier
-	 * @return retourne le nombre de lignes modifiées
 	 */
 	public void modifierClient(Client client);
 
@@ -75,9 +74,9 @@ public interface IDao {
 	 * Met à jour les comptes lors d'un virement
 	 * @param compteDebiteur Compte débité
 	 * @param compteCrediteur Compte crédité
-	 * @return retourne le nombre de lignes modifiées
+	 * @param montant montant du transfert
 	 */
-	public int virementComptes(Compte compteDebiteur, Compte compteCrediteur);
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
 
 	/**
 	 * retourne le conseiller corespondant a l'Id
