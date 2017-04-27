@@ -1,5 +1,6 @@
 package metier;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,11 +9,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "PERSONNE_TYPE")
 public abstract class Personne {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idPersonne;
 	private String nom;
 	private String prenom;
@@ -55,13 +57,13 @@ public abstract class Personne {
 		super();
 	}
 
-	public Personne(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
+	public Personne(long idPersonne, String nom, String prenom, String telephone, String email) {
 		super();
+		this.idPersonne = idPersonne;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.adresse = adresse;
-		this.codePostal = codePostal;
-		this.ville = ville;
 		this.telephone = telephone;
+		this.email = email;
 	}
+
 }

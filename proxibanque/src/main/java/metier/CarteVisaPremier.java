@@ -7,11 +7,6 @@ import javax.persistence.Entity;
 @DiscriminatorValue("VISAPREMIER")
 public class CarteVisaPremier extends CarteBancaire {
 
-	public CarteVisaPremier(Compte compte) {
-		super(compte);
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String toString() {
 		return "VisaPremier []";

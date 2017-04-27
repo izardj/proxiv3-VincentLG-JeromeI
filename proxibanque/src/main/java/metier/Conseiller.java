@@ -3,33 +3,21 @@ package metier;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
+@DiscriminatorValue("CONSEILLER")
 public class Conseiller extends Personne {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private long idConseiller;
 	private String login;
 	private String pwd;
 	@OneToMany
 	private Collection<Client> clients = new ArrayList<Client>();
 	@ManyToOne
 	private Gerant gerant;
-
-	public long getIdConseiller() {
-		return idConseiller;
-	}
-
-	public void setIdConseiller(int idConseiller) {
-		this.idConseiller = idConseiller;
-	}
 
 	public String getLogin() {
 		return login;

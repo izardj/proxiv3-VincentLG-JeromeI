@@ -3,6 +3,7 @@ package metier;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-@Inheritance
+@DiscriminatorValue("CLIENT")
 public abstract class Client extends Personne {
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private long idClient;
+	
+	
 	@OneToMany
 	private Collection<Compte> comptes = new ArrayList<Compte>();
 	@OneToMany
@@ -26,24 +26,6 @@ public abstract class Client extends Personne {
 
 	public Client() {
 		super();
-	}
-
-	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone,
-			int idClient, boolean entreprise, String nomEntreprise, Collection<Compte> comptes,
-			Collection<Placement> placements, Conseiller conseiller) {
-		super(nom, prenom, adresse, codePostal, ville, telephone);
-		this.idClient = idClient;
-		this.comptes = comptes;
-		this.placements = placements;
-		this.conseiller = conseiller;
-	}
-
-	public long getIdClient() {
-		return idClient;
-	}
-
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
 	}
 
 	public Collection<Compte> getComptes() {
@@ -95,42 +77,6 @@ public abstract class Client extends Personne {
 	}
 
 	@Override
-	public String getAdresse() {
-		// TODO Auto-generated method stub
-		return super.getAdresse();
-	}
-
-	@Override
-	public void setAdresse(String adresse) {
-		// TODO Auto-generated method stub
-		super.setAdresse(adresse);
-	}
-
-	@Override
-	public String getCodePostal() {
-		// TODO Auto-generated method stub
-		return super.getCodePostal();
-	}
-
-	@Override
-	public void setCodePostal(String codePostal) {
-		// TODO Auto-generated method stub
-		super.setCodePostal(codePostal);
-	}
-
-	@Override
-	public String getVille() {
-		// TODO Auto-generated method stub
-		return super.getVille();
-	}
-
-	@Override
-	public void setVille(String ville) {
-		// TODO Auto-generated method stub
-		super.setVille(ville);
-	}
-
-	@Override
 	public String getTelephone() {
 		// TODO Auto-generated method stub
 		return super.getTelephone();
@@ -178,10 +124,15 @@ public abstract class Client extends Personne {
 		return super.hashCode();
 	}
 
-	@Override
-	public String toString() {
-		return "Client [entreprise=" + entreprise + ", nomEntreprise=" + nomEntreprise + ", comptes=" + comptes
-				+ ", placements=" + placements + ", conseiller=" + conseiller + "]";
+	public Client(long idPersonne, String nom, String prenom, String telephone, String email) {
+		super(idPersonne, nom, prenom, telephone, email);
+		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "Client [comptes=" + comptes + ", placements=" + placements + ", conseiller=" + conseiller + "]";
+	}
+
+	
 }

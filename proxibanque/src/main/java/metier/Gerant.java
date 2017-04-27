@@ -3,22 +3,18 @@ package metier;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@DiscriminatorValue("GERANT")
 public class Gerant extends Personne {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private long idGerant;
 	@OneToMany
 	private Collection<Conseiller> conseillers = new ArrayList<Conseiller>();
-	@OneToOne(mappedBy="gerant")
+	@OneToOne(mappedBy = "gerant")
 	private Agence agence;
 
 	public Agence getAgence() {

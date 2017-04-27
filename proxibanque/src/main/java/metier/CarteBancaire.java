@@ -6,11 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance
 @DiscriminatorColumn(name="CARTE_TYPE")
 public abstract class CarteBancaire {
 
@@ -20,11 +19,6 @@ public abstract class CarteBancaire {
 	private boolean bloquee = false;
 	@OneToOne
 	private Compte compte;
-
-	public CarteBancaire(Compte compte) {
-		super();
-		this.compte = compte;
-	}
 
 	public boolean isBloquee() {
 		return bloquee;
