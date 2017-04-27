@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"/>
-<title>Insert title here</title>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Authentification</title>
+</h:head>
 <body>
-Mon index.xhtml
+	<h:form>
+		<h:messages />
+		<h:panelGrid columns="3" cellpadding="5">
+			<h:outputLabel value="Login" />
+			<h:inputText value="#{conseillerBean.conseiller.login}" />
+			<h:message for="#{conseillerBean.conseiller.login}" />
+			<h:outputLabel value="Mot de passe" />
+			<h:inputText value="#{conseillerBean.conseiller.pwd}" />
+			<h:message for="#{conseillerBean.conseiller.pwd}" />
+		</h:panelGrid>
+		<h:commandButton action="#{conseillerBean.connexion}" value="Se connecter" />
+	</h:form>
 </body>
 </html>
