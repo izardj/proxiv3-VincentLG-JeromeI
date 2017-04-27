@@ -15,7 +15,18 @@ public class verificationLogin {
 		
 		Conseiller c = service.verificationLogin("demo", "demo");
 		
-		Assert.assertEquals("Roger", c.getNom());
+		Assert.assertEquals("Robichet", c.getNom());
 	}
+	
+	@Test
+	public void testConseillerNexistePas() {
+		IServiceConseiller service = new ServiceImpl();
+		
+		Conseiller c = service.verificationLogin("fefe", "fefe");
+		
+		Assert.assertEquals(null, c);
+	}
+	
+	
 
 }
