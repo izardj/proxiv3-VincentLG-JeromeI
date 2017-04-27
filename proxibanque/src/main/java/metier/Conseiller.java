@@ -14,7 +14,7 @@ public class Conseiller extends Personne {
 
 	private String login;
 	private String pwd;
-	@OneToMany
+	@OneToMany(mappedBy="conseiller")
 	private Collection<Client> clients = new ArrayList<Client>();
 	@ManyToOne
 	private Gerant gerant;

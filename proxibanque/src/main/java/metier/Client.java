@@ -5,21 +5,19 @@ import java.util.Collection;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("CLIENT")
-public abstract class Client extends Personne {
+public class Client extends Personne {
 	
+	private String nomEntreprise;
+	private boolean entreprise = false;
 	
-	@OneToMany
+	@OneToMany(mappedBy="client")
 	private Collection<Compte> comptes = new ArrayList<Compte>();
-	@OneToMany
+	@OneToMany(mappedBy="client")
 	private Collection<Placement> placements = new ArrayList<Placement>();
 	@ManyToOne
 	private Conseiller conseiller;
@@ -98,6 +96,22 @@ public abstract class Client extends Personne {
 	public void setEmail(String email) {
 		// TODO Auto-generated method stub
 		super.setEmail(email);
+	}
+
+	public String getNomEntreprise() {
+		return nomEntreprise;
+	}
+
+	public void setNomEntreprise(String nomEntreprise) {
+		this.nomEntreprise = nomEntreprise;
+	}
+
+	public boolean isEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(boolean entreprise) {
+		this.entreprise = entreprise;
 	}
 
 	@Override
