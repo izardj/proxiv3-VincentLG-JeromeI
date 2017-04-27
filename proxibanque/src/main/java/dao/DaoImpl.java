@@ -87,8 +87,13 @@ public class DaoImpl implements IDao {
 
 	@Override
 	public Compte getCompteParId(long idCompte) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		
+		Compte compte = em.find(Compte.class, idCompte);
+
+		em.close();
+		
+		return compte;
 	}
 
 	@Override
