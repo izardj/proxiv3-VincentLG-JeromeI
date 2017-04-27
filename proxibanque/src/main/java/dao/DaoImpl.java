@@ -125,8 +125,12 @@ public class DaoImpl implements IDao {
 
 	@Override
 	public Conseiller afficherConseiller(long idConseiller) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+
+		Conseiller conseiller = em.find(Conseiller.class, idConseiller);
+
+		em.close();
+		return conseiller;
 	}
 
 }
