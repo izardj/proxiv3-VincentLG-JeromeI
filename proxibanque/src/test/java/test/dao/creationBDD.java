@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import metier.Adresse;
 import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
@@ -27,6 +28,11 @@ public class creationBDD extends TestCase {
 		Client cl2 = new Client("tutu", "alice", "6584572222","Atutu@hotmail.fr", null, false);
 		Client cl3 = new Client("gaga", "Jojo", "9879495925","jojotutu@hotmail.fr", "MomoEnterprise", true);
 		Client cl4 = new Client("momo", "Lulu", "65484821212","lulu@hotmail.fr", null, false);
+		
+		Adresse a1= new Adresse("rue du chat qui tousse", "69740", "GENAS");
+		Adresse a2= new Adresse("avenue du chateau", "25148", "LOURDE");
+		Adresse a3= new Adresse("rue du mouton qui broute", "42563", "SAINT-ETIENNE");
+		Adresse a4= new Adresse("avenue de la rue", "56240", "QUIBERON");
 		
 		CompteCourant cc1=new CompteCourant(2000, "2009-12-05");
 		CompteCourant cc2=new CompteCourant(3000, "2015-02-25");
@@ -49,6 +55,12 @@ public class creationBDD extends TestCase {
 		cl2.setConseiller(c);
 		cl3.setConseiller(c);
 		cl4.setConseiller(c);
+		
+		// association client-adresse
+		cl1.setAdresse(a1);
+		cl2.setAdresse(a2);
+		cl3.setAdresse(a3);
+		cl4.setAdresse(a4);
 		
 		// association client-compte
 		Collection<Compte> comptes = new ArrayList<Compte>();
@@ -80,11 +92,20 @@ public class creationBDD extends TestCase {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
+		// conseiller
 		em.persist(c);
+		// clients
 		em.persist(cl1);
 		em.persist(cl2);
 		em.persist(cl3);
 		em.persist(cl4);
+		// adresses
+		em.persist(a1);
+		em.persist(a2);
+		em.persist(a3);
+		em.persist(a4);
+		
+		// comptes
 		em.persist(cc1);
 		em.persist(cc2);
 		em.persist(cc3);

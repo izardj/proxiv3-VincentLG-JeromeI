@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
 
 import metier.Client;
 import metier.Compte;
@@ -50,21 +50,39 @@ public class DaoImpl implements IDao {
 	}
 
 	@Override
-	public int modifierClient(Client client) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void modifierClient(Client client) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		em.merge(client);
+		tx.commit();
+
+		em.close();
 	}
 
 	@Override
 	public Collection<Compte> listerComptesClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+
+		Query query = em.createQuery("SELECT c FROM Compte c WHERE c.client = :client");
+		query.setParameter("client", client);
+
+		Collection<Compte> comptes = query.getResultList();
+		client.setComptes(comptes);
+		em.close();
+		return comptes;
 	}
 
 	@Override
 	public Client retourneClientParId(long idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		
+		Client client = em.find(Client.class, idClient);
+
+		em.close();
+		
+		return client;
 	}
 
 	@Override

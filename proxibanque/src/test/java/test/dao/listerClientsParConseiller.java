@@ -24,7 +24,7 @@ public class listerClientsParConseiller {
 	}
 	
 	@Test
-	public void testClientsAssociesConseiller() {
+	public void testClientsSontAssociesConseiller() {
 		 IDao dao = new DaoImpl();
 		 // recuperation du conseiller de test
 		Conseiller c = dao.verificationLogin("demo", "demo");

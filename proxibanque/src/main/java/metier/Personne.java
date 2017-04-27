@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -20,6 +21,9 @@ public abstract class Personne {
 	private String prenom;
 	private String telephone;
 	private String email;
+	
+	@OneToOne
+	private Adresse adresse;
 
 	public String getNom() {
 		return nom;
@@ -51,6 +55,22 @@ public abstract class Personne {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public long getIdPersonne() {
+		return idPersonne;
+	}
+
+	public void setIdPersonne(long idPersonne) {
+		this.idPersonne = idPersonne;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 	public Personne() {

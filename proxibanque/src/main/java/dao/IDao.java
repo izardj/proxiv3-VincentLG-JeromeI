@@ -35,7 +35,7 @@ public interface IDao {
 	 *            client à modifier
 	 * @return retourne le nombre de lignes modifiées
 	 */
-	public int modifierClient(Client client);
+	public void modifierClient(Client client);
 
 	/**
 	 * Récupère les comptes associés à un client

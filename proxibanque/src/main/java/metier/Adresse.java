@@ -15,6 +15,17 @@ public class Adresse {
 	private String codePostal;
 	private String ville;
 
+	public Adresse(String rue, String codePostal, String ville) {
+		super();
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+
+	public Adresse() {
+		super();
+	}
+
 	public long getIdAdresse() {
 		return idAdresse;
 	}
