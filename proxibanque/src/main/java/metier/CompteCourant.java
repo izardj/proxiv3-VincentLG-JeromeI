@@ -23,6 +23,10 @@ public class CompteCourant extends Compte {
 		this.decouvert = decouvert;
 	}
 
+	public CompteCourant(double solde, String dateOuverture) {
+		super(solde, dateOuverture);
+	}
+
 	public CompteCourant() {
 		super();
 	}

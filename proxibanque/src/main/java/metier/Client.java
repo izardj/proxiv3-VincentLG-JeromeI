@@ -11,19 +11,26 @@ import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("CLIENT")
 public class Client extends Personne {
-	
+
 	private String nomEntreprise;
 	private boolean entreprise = false;
-	
-	@OneToMany(mappedBy="client")
+
+	@OneToMany(mappedBy = "client")
 	private Collection<Compte> comptes = new ArrayList<Compte>();
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy = "client")
 	private Collection<Placement> placements = new ArrayList<Placement>();
 	@ManyToOne
 	private Conseiller conseiller;
 
 	public Client() {
 		super();
+	}
+
+	public Client(String nom, String prenom, String telephone, String email, String nomEntreprise, boolean entreprise) {
+		super(nom, prenom, telephone, email);
+		this.nomEntreprise = nomEntreprise;
+		this.entreprise = entreprise;
+
 	}
 
 	public Collection<Compte> getComptes() {
@@ -138,15 +145,9 @@ public class Client extends Personne {
 		return super.hashCode();
 	}
 
-	public Client(long idPersonne, String nom, String prenom, String telephone, String email) {
-		super(idPersonne, nom, prenom, telephone, email);
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String toString() {
 		return "Client [comptes=" + comptes + ", placements=" + placements + ", conseiller=" + conseiller + "]";
 	}
 
-	
 }

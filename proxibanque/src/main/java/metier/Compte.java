@@ -73,6 +73,13 @@ public abstract class Compte {
 		this.carteBancaire = carteBancaire;
 	}
 
+	
+	public Compte(double solde, String dateOuverture) {
+		super();
+		this.solde = solde;
+		this.dateOuverture = dateOuverture;
+	}
+
 	public Compte() {
 		super();
 	}

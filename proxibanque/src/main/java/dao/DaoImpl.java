@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import exception.DaoException;
+
 import metier.Client;
 import metier.Compte;
 import metier.Conseiller;

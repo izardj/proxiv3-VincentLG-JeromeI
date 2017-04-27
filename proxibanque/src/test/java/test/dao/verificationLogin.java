@@ -15,7 +15,7 @@ public class verificationLogin {
 		IDao dao = new DaoImpl();
 		
 		Conseiller c = dao.verificationLogin("demo", "demo");
-		Assert.assertEquals("Roger", c.getNom());
+		Assert.assertEquals("Robichet", c.getNom());
 	}
 	
 	@Test

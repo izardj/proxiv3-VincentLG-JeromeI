@@ -66,6 +66,12 @@ public class Conseiller extends Personne {
 		super();
 	}
 
+	public Conseiller(String nom, String prenom, String telephone, String email,String login,String pwd) {
+		super(nom, prenom, telephone, email);
+		this.login=login;
+		this.pwd=pwd;
+	}
+
 	@Override
 	public String toString() {
 		return "Conseiller [clients=" + clients + "]";

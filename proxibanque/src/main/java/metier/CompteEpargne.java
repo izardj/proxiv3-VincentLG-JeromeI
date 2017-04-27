@@ -27,6 +27,10 @@ public class CompteEpargne extends Compte {
 		super();
 	}
 
+	public CompteEpargne(double solde, String dateOuverture) {
+		super(solde, dateOuverture);
+	}
+
 	@Override
 	public String toString() {
 		return "CompteEpargne [remuneration=" + remuneration + ", toString()=" + super.toString() + "]";
