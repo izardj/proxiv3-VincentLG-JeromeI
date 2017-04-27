@@ -2,8 +2,7 @@ package service;
 
 import java.util.Collection;
 
-import javax.inject.Inject;
-
+import dao.DaoImpl;
 import dao.IDao;
 import metier.Client;
 import metier.Compte;
@@ -11,9 +10,9 @@ import metier.Conseiller;
 
 public class ServiceImpl implements IServiceConseiller {
 
-	@Inject
-	private IDao dao;
-	
+	// @Inject
+	private IDao dao = new DaoImpl();
+
 	@Override
 	public Conseiller verificationLogin(String login, String pwd) {
 		return dao.verificationLogin(login, pwd);

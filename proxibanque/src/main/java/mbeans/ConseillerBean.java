@@ -1,19 +1,20 @@
 package mbeans;
 
-
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import metier.Conseiller;
 import service.IServiceConseiller;
+import service.ServiceImpl;
 
-@Named
+//@Named
+@ManagedBean
 @SessionScoped
 public class ConseillerBean {
 
-	@Inject
-	IServiceConseiller service;
+	// @Inject
+	IServiceConseiller service = new ServiceImpl();
 	Conseiller conseiller = new Conseiller();
 
 	public IServiceConseiller getService() {
