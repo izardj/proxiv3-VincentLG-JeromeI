@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @DiscriminatorValue("GERANT")
 public class Gerant extends Personne {
 
-	@OneToMany(mappedBy="conseiller")
+	@OneToMany(mappedBy="gerant")
 	private Collection<Conseiller> conseillers = new ArrayList<Conseiller>();
 	@OneToOne(mappedBy = "gerant")
 	private Agence agence;
