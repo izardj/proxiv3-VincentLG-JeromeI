@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
@@ -17,6 +18,7 @@ public abstract class CarteBancaire {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idCarteBancaire;
 	private boolean bloquee = false;
+	@OneToOne
 	private Compte compte;
 
 	public CarteBancaire(Compte compte) {

@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance
@@ -15,8 +17,11 @@ public abstract class Client extends Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long idClient;
+	@OneToMany
 	private Collection<Compte> comptes = new ArrayList<Compte>();
+	@OneToMany
 	private Collection<Placement> placements = new ArrayList<Placement>();
+	@ManyToOne
 	private Conseiller conseiller;
 
 	public Client() {

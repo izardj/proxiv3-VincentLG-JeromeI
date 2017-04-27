@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conseiller extends Personne {
@@ -16,6 +18,10 @@ public class Conseiller extends Personne {
 	private long idConseiller;
 	private String login;
 	private String pwd;
+	@OneToMany
+	private Collection<Client> clients = new ArrayList<Client>();
+	@ManyToOne
+	private Gerant gerant;
 
 	public long getIdConseiller() {
 		return idConseiller;
@@ -40,9 +46,6 @@ public class Conseiller extends Personne {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
-	private Collection<Client> clients = new ArrayList<Client>();
-	private Gerant gerant;
 
 	public Gerant getGerant() {
 		return gerant;

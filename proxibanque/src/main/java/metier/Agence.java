@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Agence {
@@ -12,6 +13,7 @@ public class Agence {
 	private long idAgence;
 	private String numAgence;
 	private long dateCreation;
+	@OneToOne
 	private Gerant gerant;
 
 	public Agence(String numAgence, long dateCreation, Gerant gerant) {

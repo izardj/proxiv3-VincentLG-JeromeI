@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance
@@ -17,7 +19,9 @@ public abstract class Compte {
 	private long numeroCompte;
 	private double solde;
 	private String dateOuverture;
+	@ManyToOne
 	private Client client;
+	@OneToOne
 	private CarteBancaire carteBancaire;
 
 	public long getNumeroCompte() {
