@@ -18,5 +18,13 @@ public class verificationLogin {
 		Assert.assertEquals("Roger", c.getNom());
 	}
 	
+	@Test
+	public void testConseillerExistePas() {
+
+		IDao dao = new DaoImpl();
+		
+		Conseiller c = dao.verificationLogin("ExistePAs", "ExistePAs");
+		Assert.assertEquals(null, c);
+	}
 
 }

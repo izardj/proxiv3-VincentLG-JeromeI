@@ -1,12 +1,14 @@
 package dao;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import exception.DaoException;
 import metier.Client;
 import metier.Compte;
 import metier.Conseiller;
@@ -18,14 +20,20 @@ public class DaoImpl implements IDao {
 	@Override
 	public Conseiller verificationLogin(String login, String pwd) {
 		EntityManager em = emf.createEntityManager();
-		
+
 		Query query = em.createQuery("SELECT c FROM Conseiller c WHERE c.login = :login AND c.pwd = :pwd");
 		query.setParameter("login", login);
 		query.setParameter("pwd", pwd);
-		
-		Conseiller conseiller = (Conseiller) query.getSingleResult();
+
+		Conseiller conseiller = null;
+		List<Conseiller> results = query.getResultList();
+		if (!results.isEmpty()) {
+			conseiller = (Conseiller) results.get(0);
+		}
+
 		em.close();
 		return conseiller;
+
 	}
 
 	@Override
