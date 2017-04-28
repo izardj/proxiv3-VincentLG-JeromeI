@@ -7,36 +7,42 @@
 	<title>Liste des clients</title>
 </h:head>
 <h:body>
-<p><h:outputLabel value="#{conseillerBean.conseiller.nom}"/></p>
-
+	<p>
+		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
+	</p>
+	<h:form>
+		<h:commandButton action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+	</h:form>
 	<h2>Liste des clients</h2>
-<h:form>	
-	<h:dataTable value="#{clientBean.clients}" var="c" border="1">
+	<h:form>
+		<h:dataTable value="#{clientBean.clients}" var="c" border="1">
 
-		<h:column>
-			<f:facet name="header">ID</f:facet>
-			<h:outputText value="#{c.idPersonne}" />
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{c.idPersonne}" />
 
-		</h:column>
-		<h:column>
-			<f:facet name="header">Nom</f:facet>
-			<h:outputText value="#{c.nom}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nom</f:facet>
+				<h:outputText value="#{c.nom}" />
 
-		</h:column>
-		<h:column>
-			<f:facet name="header">Prénom</f:facet>
-			<h:outputText value="#{c.prenom}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Prénom</f:facet>
+				<h:outputText value="#{c.prenom}" />
 
-		</h:column>
-		<h:column>
-			<f:facet name="header">Détails</f:facet>
-			<h:commandLink action="#{clientBean.afficherDetails}" value="Details">
-				<f:setPropertyActionListener value="#{c}" target="#{clientBean.client}"/>
-			</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Détails</f:facet>
+				<h:commandLink action="#{clientBean.afficherDetails}"
+					value="Details">
+					<f:setPropertyActionListener value="#{c}"
+						target="#{clientBean.client}" />
+				</h:commandLink>
 
-		</h:column>
-	</h:dataTable>
-</h:form>
+			</h:column>
+		</h:dataTable>
+	</h:form>
 
 </h:body>
 </html>

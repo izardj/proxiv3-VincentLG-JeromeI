@@ -45,4 +45,11 @@ public class ConseillerBean {
 			return "listeClients";
 		}
 	}
+	
+	public String deconnexion(){
+		conseiller = null;
+		return "index";
+		
+	}
+	
 }
