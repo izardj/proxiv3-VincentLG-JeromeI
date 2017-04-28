@@ -40,6 +40,7 @@ public class ConseillerBean {
 		conseiller = service.verificationLogin(conseiller.getLogin(), conseiller.getPwd());
 		if (conseiller == null) {
 			// message erreur
+			conseiller = new Conseiller();
 			return "index";
 		} else {
 			return "listeClients";
@@ -47,7 +48,7 @@ public class ConseillerBean {
 	}
 	
 	public String deconnexion(){
-		conseiller = null;
+		conseiller = new Conseiller();
 		return "index";
 		
 	}

@@ -14,7 +14,7 @@
 			<h:inputText value="#{conseillerBean.conseiller.login}" />
 			<h:message for="#{conseillerBean.conseiller.login}" />
 			<h:outputLabel value="Mot de passe" />
-			<h:inputText value="#{conseillerBean.conseiller.pwd}" />
+			<h:inputSecret value="#{conseillerBean.conseiller.pwd}" />
 			<h:message for="#{conseillerBean.conseiller.pwd}" />
 		</h:panelGrid>
 		<h:commandButton action="#{conseillerBean.connexion}" value="Se connecter" />
