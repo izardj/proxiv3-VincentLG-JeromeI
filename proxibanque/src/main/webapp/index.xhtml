@@ -6,19 +6,24 @@
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Authentification</title>
+	<link rel="stylesheet" href="css/style.css" />
 </h:head>
-<body>
-	<h:form>
-		<h:messages />
-		<h:panelGrid columns="3" cellpadding="5">
-			<h:outputLabel value="Login" />
-			<h:inputText value="#{conseillerBean.conseiller.login}" />
-			<h:message for="#{conseillerBean.conseiller.login}" />
-			<h:outputLabel value="Mot de passe" />
-			<h:inputSecret value="#{conseillerBean.conseiller.pwd}" />
-			<h:message for="#{conseillerBean.conseiller.pwd}" />
-		</h:panelGrid>
-		<h:commandButton action="#{conseillerBean.connexion}" value="Se connecter" />
-	</h:form>
-</body>
+<h:body>
+	<div id="connexion">
+		<h:form>
+			<p:messages showDetail="true" autoUpdate="true" closable="true"/>
+			<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10"
+				layout="grid" styleClass="ui-panelgrid-blank">
+				<p:outputLabel value="Login" />
+				<p:inputText id="login" value="#{conseillerBean.conseiller.login}" required="true" label="Login"/>
+
+				<p:outputLabel value="Mot de passe" />
+				<p:password id="pwd" value="#{conseillerBean.conseiller.pwd}"
+					required="true" label="Mot de passe"/>
+			</p:panelGrid>
+			<p:commandButton action="#{conseillerBean.connexion}"
+				value="Se connecter"/>
+		</h:form>
+	</div>
+</h:body>
 </html>

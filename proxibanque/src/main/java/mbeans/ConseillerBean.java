@@ -1,8 +1,9 @@
 package mbeans;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
+import javax.faces.context.FacesContext;
 
 import metier.Conseiller;
 import service.IServiceConseiller;
@@ -39,7 +40,8 @@ public class ConseillerBean {
 	public String connexion() {
 		conseiller = service.verificationLogin(conseiller.getLogin(), conseiller.getPwd());
 		if (conseiller == null) {
-			// message erreur
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Connexion échouée, mot de passe/login invalides", null));
 			conseiller = new Conseiller();
 			return "index";
 		} else {

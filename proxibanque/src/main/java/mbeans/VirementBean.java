@@ -2,8 +2,10 @@ package mbeans;
 
 import java.util.Collection;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import metier.Compte;
 import service.IServiceConseiller;
@@ -79,10 +81,12 @@ public class VirementBean {
 	public String effectuerVirement(){
 		compteCrediteur= service.getCompteParId(idCompteCrediteur);
 		if(service.virementComptes(compteDebiteur, compteCrediteur, montant)){
-			// message OK
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Virement réalisé avec succés!", null));
 		}
 		else{
-			// message echoué
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Solde insuffisant, virement non effectué", null));
 		}
 		montant = 0;
 		return "virement";
