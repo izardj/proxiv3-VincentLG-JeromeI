@@ -84,6 +84,7 @@ public class VirementBean {
 		else{
 			// message echoué
 		}
+		montant = 0;
 		return "virement";
 	}
 
