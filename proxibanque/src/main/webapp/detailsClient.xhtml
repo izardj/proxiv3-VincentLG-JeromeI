@@ -76,10 +76,10 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Virement</f:facet>
-				<h:commandLink action="#{compteBean.virement}"
+				<h:commandLink action="#{virementBean.afficherVirement}"
 					value="Virement">
 					<f:setPropertyActionListener value="#{c}"
-						target="#{compteBean.compte}" />
+						target="#{virementBean.compteDebiteur}" />
 				</h:commandLink>
 
 			</h:column>

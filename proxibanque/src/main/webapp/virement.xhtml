@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Virement</title>
+</h:head>
+<h:body>
+	<p>
+		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
+	</p>
+	<h:form>
+		<h:commandButton action="#{conseillerBean.deconnexion}"
+			value="Déconnexion" />
+	</h:form>
+	<h:form>
+		<h2>Compte à débiter</h2>
+		<h:outputText value="#{virementBean.compteDebiteur.numeroCompte}"></h:outputText>
+		<h2>Compte à Créditer</h2>
+		
+		<h:selectOneMenu value="#{virementBean.idCompteCrediteur}">
+   			<f:selectItems value="#{virementBean.autresComptes}" var="c" itemLabel="#{c.numeroCompte}" itemValue="#{c.numeroCompte}"/>
+   		</h:selectOneMenu>
+   		
+		<h2>Montant à virer</h2>
+		<h:inputText value="#{virementBean.montant}" />
+
+		<h:commandButton action="#{virementBean.effectuerVirement}"
+			value="Effectuer virement" />
+	</h:form>
+</h:body>
+</html>
