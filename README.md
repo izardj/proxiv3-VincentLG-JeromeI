@@ -20,8 +20,6 @@ Comment lancer l'application Java ProxiBanqueV3
 		
 	(dans phpMyAdmin en cliquant sur l'onglet import)
 			
-	Important: bien décocher "Activer la vérification des clés étrangères" pour éviter les problèmes lors du peuplement
-			
 	- Copier le fichier "livraison\ProxiV3-VLG-JI.war" dans le repertoire "webapps" de Tomcat
 		
 	(ex: C:\apache-tomcat-9.0.0.M19\webapps, si Tomcat est installé dans C:\apache-tomcat-9.0.0.M19)
