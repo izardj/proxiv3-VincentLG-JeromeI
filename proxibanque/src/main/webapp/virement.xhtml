@@ -13,16 +13,18 @@
 	<h:form>
 		<h:commandButton action="#{conseillerBean.deconnexion}"
 			value="Déconnexion" />
+		<h:commandButton action="listeClients" value="Retour Liste Clients" />
 	</h:form>
 	<h:form>
 		<h2>Compte à débiter</h2>
 		<h:outputText value="#{virementBean.compteDebiteur.numeroCompte}"></h:outputText>
 		<h2>Compte à Créditer</h2>
-		
+
 		<h:selectOneMenu value="#{virementBean.idCompteCrediteur}">
-   			<f:selectItems value="#{virementBean.autresComptes}" var="c" itemLabel="#{c.numeroCompte}" itemValue="#{c.numeroCompte}"/>
-   		</h:selectOneMenu>
-   		
+			<f:selectItems value="#{virementBean.autresComptes}" var="c"
+				itemLabel="#{c.numeroCompte}" itemValue="#{c.numeroCompte}" />
+		</h:selectOneMenu>
+
 		<h2>Montant à virer</h2>
 		<h:inputText value="#{virementBean.montant}" />
 
