@@ -16,7 +16,7 @@ import metier.Client;
 import metier.Compte;
 import metier.Conseiller;
 
-public class listerComptesClient {
+public class ListerComptesClient {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 	

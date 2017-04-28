@@ -9,7 +9,7 @@ import dao.DaoImpl;
 import dao.IDao;
 import metier.Conseiller;
 
-public class afficherConseiller {
+public class AfficherConseiller {
 
 	@Test
 	public void testRetourneUnConseiller() {

@@ -15,7 +15,7 @@ import dao.IDao;
 import metier.Client;
 import metier.Compte;
 
-public class listerAutresComptes {
+public class ListerAutresComptes {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 	

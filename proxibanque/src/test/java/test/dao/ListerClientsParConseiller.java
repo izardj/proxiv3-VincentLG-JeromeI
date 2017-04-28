@@ -10,7 +10,7 @@ import dao.IDao;
 import metier.Client;
 import metier.Conseiller;
 
-public class listerClientsParConseiller {
+public class ListerClientsParConseiller {
 
 	@Test
 	public void testTailleCollectionClients() {

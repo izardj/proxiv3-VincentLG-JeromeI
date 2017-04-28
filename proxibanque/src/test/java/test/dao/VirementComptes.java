@@ -15,7 +15,7 @@ import metier.Compte;
 import metier.CompteCourant;
 import metier.CompteEpargne;
 
-public class virementComptes {
+public class VirementComptes {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 	

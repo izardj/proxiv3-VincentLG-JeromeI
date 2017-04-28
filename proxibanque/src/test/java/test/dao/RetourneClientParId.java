@@ -13,7 +13,7 @@ import dao.DaoImpl;
 import dao.IDao;
 import metier.Client;
 
-public class retourneClientParId {
+public class RetourneClientParId {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 

@@ -12,7 +12,7 @@ import dao.DaoImpl;
 import dao.IDao;
 import metier.Client;
 
-public class modifierClient {
+public class ModifierClient {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 	
