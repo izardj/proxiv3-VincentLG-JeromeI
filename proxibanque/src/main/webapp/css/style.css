@@ -4,3 +4,9 @@
 .barre{
 	display:inline;
 }
+
+
+panelGrid{
+	cellpadding:10px;
+	border:none;
+}
