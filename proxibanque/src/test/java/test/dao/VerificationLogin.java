@@ -7,7 +7,7 @@ import dao.DaoImpl;
 import dao.IDao;
 import metier.Conseiller;
 
-public class verificationLogin {
+public class VerificationLogin {
 
 	@Test
 	public void testConseillerExiste() {

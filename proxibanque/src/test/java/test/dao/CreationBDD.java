@@ -18,7 +18,7 @@ import metier.CompteCourant;
 import metier.CompteEpargne;
 import metier.Conseiller;
 
-public class creationBDD extends TestCase {
+public class CreationBDD extends TestCase {
 
 	@Test
 	public void testBDD() {

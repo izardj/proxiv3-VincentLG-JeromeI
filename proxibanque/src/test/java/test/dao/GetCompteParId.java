@@ -11,7 +11,7 @@ import dao.IDao;
 import metier.CompteCourant;
 import metier.CompteEpargne;
 
-public class getCompteParId {
+public class GetCompteParId {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
 	
