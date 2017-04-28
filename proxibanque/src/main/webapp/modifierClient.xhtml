@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Modification du client</title>
+</h:head>
+<h:body>
+	<p>
+		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
+	</p>
+	<h:form>
+		<h:commandButton action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+	</h:form>
+	
+<h:form>	
+	<h:outputLabel value="Nom :" for="#{clientBean.client.nom}"/>
+	<h:inputText value="#{clientBean.client.nom}"/>
+	
+	<h:outputLabel value="Prenom :" for="#{clientBean.client.prenom}"/>
+	<h:inputText value="#{clientBean.client.prenom}"/>
+	
+	<h3>Coordonnées</h3>
+	<h:outputLabel value="Rue :" for="#{clientBean.client.adresse.rue}"/>
+	<h:inputText value="#{clientBean.client.adresse.rue}"/>
+	
+	<h:outputLabel value="Code Postal :" for="#{clientBean.client.adresse.codePostal}"/>
+	<h:inputText value="#{clientBean.client.adresse.codePostal}"/>
+	
+	<h:outputLabel value="Ville :" for="#{clientBean.client.adresse.ville}"/>
+	<h:inputText value="#{clientBean.client.adresse.ville}"/>
+	
+		
+	<h3>Contact</h3>
+	<h:outputLabel value="Téléphone :" for="#{clientBean.client.telephone}"/>
+	<h:inputText value="#{clientBean.client.telephone}"/>
+	
+	<h:outputLabel value="Email :" for="#{clientBean.client.email}"/>
+	<h:inputText value="#{clientBean.client.email}"/>
+
+
+	<h:commandButton value="Modifier" action="#{clientBean.modifierClient}"/>
+</h:form>	
+	
+</h:body>
+</html>

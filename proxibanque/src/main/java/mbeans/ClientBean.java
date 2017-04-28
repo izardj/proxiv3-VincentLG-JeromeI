@@ -66,6 +66,10 @@ public class ClientBean {
 		return "detailsClient";
 	}
 	
+	public String modifierClient(){
+		service.modifierClient(client);
+		return "detailsClient";
+	}
 	
 	
 
