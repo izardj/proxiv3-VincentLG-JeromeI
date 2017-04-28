@@ -62,6 +62,10 @@ public class ClientBean {
 		this.conseillerBean = conseillerBean;
 	}
 	
+	public String afficherDetails(){
+		return "detailsClient";
+	}
+	
 	
 	
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Liste des clients</title>
+</h:head>
+<h:body>
+	<p>
+		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
+	</p>
+	<h:form>
+		<h:commandButton action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+	</h:form>
+	
+	
+	<h:outputLabel value="Nom :" for="#{clientBean.client.nom}"/>
+	<h:outputText value="#{clientBean.client.nom}"/>
+	
+	<h:outputLabel value="Prenom :" for="#{clientBean.client.prenom}"/>
+	<h:outputText value="#{clientBean.client.prenom}"/>
+	
+	<h3>Coordonnées</h3>
+	<h:outputLabel value="Rue :" for="#{clientBean.client.adresse.rue}"/>
+	<h:outputText value="#{clientBean.client.adresse.rue}"/>
+	
+	<h:outputLabel value="Code Postal :" for="#{clientBean.client.adresse.codePostal}"/>
+	<h:outputText value="#{clientBean.client.adresse.codePostal}"/>
+	
+	<h:outputLabel value="Ville :" for="#{clientBean.client.adresse.ville}"/>
+	<h:outputText value="#{clientBean.client.adresse.ville}"/>
+	
+		
+	<h3>Contact</h3>
+	<h:outputLabel value="Téléphone :" for="#{clientBean.client.telephone}"/>
+	<h:outputText value="#{clientBean.client.telephone}"/>
+	
+	<h:outputLabel value="Email :" for="#{clientBean.client.email}"/>
+	<h:outputText value="#{clientBean.client.email}"/>
+
+<h:form>
+	<h:commandButton value="Modifier" action="modifierClient"/>
+</h:form>	
+	
+	
+	
+	<h2>Liste des comptes</h2>
+	<h:form>
+		<h:dataTable value="#{compteBean.comptes}" var="c" border="1">
+
+			<h:column>
+				<f:facet name="header">N° de Compte</f:facet>
+				<h:outputText value="#{c.numeroCompte}" />
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">Date d'ouverture</f:facet>
+				<h:outputText value="#{c.dateOuverture}" />
+
+			</h:column>
+<!-- 			<h:column> -->
+<!-- 				<f:facet name="header">Découvert</f:facet> -->
+<!-- 				<h:outputText value="#{c.decouvert}" /> -->
+
+<!-- 			</h:column> -->
+<!-- 			<h:column> -->
+<!-- 				<f:facet name="header">Rémunération</f:facet> -->
+<!-- 				<h:outputText value="#{c.remuneration}" /> -->
+
+<!-- 			</h:column> -->
+			<h:column>
+				<f:facet name="header">Solde</f:facet>
+				<h:outputText value="#{c.solde}€" />
+
+			</h:column>
+			<h:column>
+				<f:facet name="header">Virement</f:facet>
+				<h:commandLink action="#{compteBean.virement}"
+					value="Virement">
+					<f:setPropertyActionListener value="#{c}"
+						target="#{compteBean.compte}" />
+				</h:commandLink>
+
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>
