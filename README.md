@@ -1,5 +1,7 @@
 # ProxiBanqueV3 - Vincent Le Gal - Jérôme Izard
 Comment lancer l'application Java ProxiBanqueV3
+Remarque : les messages d'erreurs ne sont pas tous implémentés (modification client par exemple).
+Egalement, la mise en page via PrimeFace n'est pas trés finie.
 
 ## Pré-requis:
 	- Machine cible dotée d'un systeme d'exploitation Windows.
