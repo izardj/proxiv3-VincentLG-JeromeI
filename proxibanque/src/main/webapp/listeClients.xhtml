@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Liste des clients</title>
+	<link rel="stylesheet" href = "css/style.css" />
 </h:head>
 <h:body>
-	<p>
-		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
-	</p>
 	<h:form>
-		<h:commandButton action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+		<p:menubar>
+		<f:facet name="options">
+			<p:outputLabel class="barre" value="Bonjour #{conseillerBean.conseiller.nom}, " />
+            <p:commandButton class="barre" type="submit" icon="ui-icon-extlink" action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+         </f:facet>
+       </p:menubar>
 	</h:form>
+	
 	<h2>Liste des clients</h2>
+	
 	<h:form>
-		<h:dataTable value="#{clientBean.clients}" var="c" border="1">
+		<p:dataTable value="#{clientBean.clients}" var="c" border="1" style="width: 700">
 
-			<h:column>
+			<p:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{c.idPersonne}" />
 
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">Nom</f:facet>
 				<h:outputText value="#{c.nom}" />
 
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">Prénom</f:facet>
 				<h:outputText value="#{c.prenom}" />
 
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">Détails</f:facet>
 				<h:commandLink action="#{clientBean.afficherDetails}"
 					value="Details">
@@ -40,8 +46,8 @@
 						target="#{clientBean.client}" />
 				</h:commandLink>
 
-			</h:column>
-		</h:dataTable>
+			</p:column>
+		</p:dataTable>
 	</h:form>
 
 </h:body>

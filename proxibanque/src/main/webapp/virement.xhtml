@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Virement</title>
+	<link rel="stylesheet" href = "css/style.css" />
 </h:head>
 <h:body>
-	<p>
-		<h:outputLabel value="#{conseillerBean.conseiller.nom}" />
-	</p>
 	<h:form>
-		<h:commandButton action="#{conseillerBean.deconnexion}"
-			value="Déconnexion" />
-		<h:commandButton action="listeClients" value="Retour Liste Clients" />
+		<p:menubar>
+		<p:menuitem action="listeClients" value="Liste clients" />
+		<p:menuitem action="detailsClient" value="Retour page client" />
+		<f:facet name="options">
+			<p:outputLabel class="barre" value="Bonjour #{conseillerBean.conseiller.nom}, " />
+            <p:commandButton class="barre" type="submit" icon="ui-icon-extlink" action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+         </f:facet>
+       </p:menubar>
 	</h:form>
+	
 	<h:form>
 		<h2>Compte à débiter</h2>
 		<h:outputText value="#{virementBean.compteDebiteur.numeroCompte}"></h:outputText>
