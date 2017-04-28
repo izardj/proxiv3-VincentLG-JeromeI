@@ -9,14 +9,17 @@ import service.IServiceConseiller;
 import service.ServiceImpl;
 
 //@Named
-@ManagedBean
+@ManagedBean(eager=true)
 @SessionScoped
 public class ConseillerBean {
 
-	// @Inject
-	IServiceConseiller service = new ServiceImpl();
-	Conseiller conseiller = new Conseiller();
+	
+	private IServiceConseiller service = new ServiceImpl();
+	private Conseiller conseiller = new Conseiller();
 
+	
+	
+	
 	public IServiceConseiller getService() {
 		return service;
 	}
@@ -34,8 +37,8 @@ public class ConseillerBean {
 	}
 
 	public String connexion() {
-
-		if (service.verificationLogin(conseiller.getLogin(), conseiller.getPwd()) == null) {
+		conseiller = service.verificationLogin(conseiller.getLogin(), conseiller.getPwd());
+		if (conseiller == null) {
 			// message erreur
 			return "index";
 		} else {
