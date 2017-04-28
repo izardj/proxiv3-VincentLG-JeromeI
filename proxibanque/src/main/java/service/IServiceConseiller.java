@@ -33,7 +33,7 @@ public interface IServiceConseiller {
 	 * 
 	 * @param client
 	 *            client à modifier
-	 * @return retourne le nombre de lignes modifiées
+	 * 
 	 */
 	public void modifierClient(Client client);
 
